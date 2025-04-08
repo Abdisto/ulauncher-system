@@ -2,35 +2,35 @@
     "shutdown": {
         "name": "Shut down",
         "description": "Shut down the machine.",
-        "icon": "system-shutdown",
+        "icon": "system-shutdown.svg",
         "aliases": ["shut down", "shutdown", "poweroff", "halt"],
         "command": "systemctl poweroff -i"
     },
     "log-out": {
         "name": "Log out",
         "description": "Quit the session.",
-        "icon": "system-log-out",
+        "icon": "system-log-out.svg",
         "aliases": ["log out", "logout", "leave"],
         "command": null
     },
     "reboot": {
         "name": "Reboot",
         "description": "Restart the machine.",
-        "icon": "system-reboot",
+        "icon": "system-reboot.svg",
         "aliases": ["restart", "reboot"],
         "command": "systemctl reboot -i"
     },
     "sleep": {
         "name": "Sleep",
         "description": "Sleep.",
-        "icon": "system-sleep",
+        "icon": "system-sleep.svg",
         "aliases": ["suspend", "sleep"],
         "command": "systemctl suspend -i"
     },
     "bios": {
         "name": "Restart to BIOS",
         "description": "Restart to the system BIOS",
-        "icon": "application-x-firmware",
+        "icon": "application-x-firmware.svg",
         "aliases": ["bios","firmware","restart","reboot"],
         "command": "systemctl reboot --firmware-setup"
     }
