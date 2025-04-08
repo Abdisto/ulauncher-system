@@ -48,16 +48,25 @@ class Entry:
         except KeyError as e:
             raise Exception(f"{e} not found in data")
 
-    def __get_icon(self, icon_name: str) -> str:
-        icon: Gtk.IconInfo = self.__icon_theme.lookup_icon(
-            icon_name, 32, Gtk.IconLookupFlags.GENERIC_FALLBACK
+    def __get_icon(self, icon_path_or_name: str) -> str:
+        # First, check if it's a direct path to a file (absolute or relative to your extension)
+        possible_paths = [
+            os.path.join(ULAUNCHER_SYSTEM_DIR, "images", icon_path_or_name),
+            os.path.join(USER_CONFIG_DIR, "images", icon_path_or_name),
+            icon_path_or_name  # Already an absolute path
+        ]
+        for path in possible_paths:
+            if os.path.isfile(path):
+                return path
+        # Fallback: look up in GTK icon theme
+        icon_info = self.__icon_theme.lookup_icon(
+            icon_path_or_name, 32, Gtk.IconLookupFlags.GENERIC_FALLBACK
         )
+        if icon_info:
+            return icon_info.get_filename()   
+        logger.warning(f"No icon found for: {icon_path_or_name}")
+        return ""
 
-        if icon:
-            return icon.get_filename()
-        else:
-            logger.warning(f"No icon found for: {icon_name}")
-            return ""
 
     @property
     def name(self) -> str:
