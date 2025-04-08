@@ -11,7 +11,7 @@
         "description": "Quit the session.",
         "icon": "system-log-out.svg",
         "aliases": ["log out", "logout", "leave"],
-        "command": null
+        "command": "hyprctl dispatch exit"
     },
     "reboot": {
         "name": "Reboot",
@@ -25,7 +25,7 @@
         "description": "Sleep.",
         "icon": "system-sleep.svg",
         "aliases": ["suspend", "sleep"],
-        "command": "systemctl suspend -i"
+        "command": "swaylock"
     },
     "bios": {
         "name": "Restart to BIOS",
