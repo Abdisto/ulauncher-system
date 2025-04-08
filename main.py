@@ -25,7 +25,7 @@ logger: logging.Logger = logging.getLogger(__name__)
 ULAUNCHER_SYSTEM_DIR = os.path.dirname(__file__)
 USER_HOME_DIR = os.path.expanduser("~")
 XDG_CONFIG_HOME = os.environ.get("XDG_CONFIG_HOME", f"{USER_HOME_DIR}/.config")
-USER_CONFIG_DIR = f"~/.local/share/ulauncher/extensions/com.github.abdisto.ulauncher-system/ulauncher-system"
+USER_CONFIG_DIR = os.path.expanduser("~/.local/share/ulauncher/extensions/com.github.abdisto.ulauncher-system/ulauncher-system")
 
 class Entry:
     __slots__: List[str] = [
